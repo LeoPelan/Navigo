@@ -9,7 +9,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\Table(name="cards")
  */
-class Cards
+
+class Card
 {
     /**
      * @ORM\Id
@@ -51,7 +52,7 @@ class Cards
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getCardNumber()
     {
@@ -59,7 +60,7 @@ class Cards
     }
 
     /**
-     * @param int $cardNumber
+     * @param string $cardNumber
      */
     public function setCardNumber($cardNumber)
     {
@@ -81,8 +82,5 @@ class Cards
     {
         $this->validity = $validity;
     }
-
-
-
 
 }

@@ -33,26 +33,16 @@ class User extends BaseUser
      * )
      */
     protected $lastName;
-
+    
     /**
-     * @ORM\Column(type="string", length=255)
-     *
-     * @Assert\NotBlank(message="Please enter your Navigo Cart Number.", groups={"Registration", "Profile"})
-     * @Assert\Length(
-     *     min=13,
-     *     max=13,
-     *     minMessage="It's not a valid Cart Number.",
-     *     maxMessage="It's not a valid Cart Number.",
-     *     groups={"Registration", "Profile"}
-     * )
-     */
+    * @ORM\OneToOne(targetEntity="AppBundle\Entity\Card", cascade={"persist"})
+    */
+    private $cardNumber;
 
     public function __construct()
     {
         parent::__construct();
     }
-
-
     /**
      * @return string
      */
@@ -66,6 +56,13 @@ class User extends BaseUser
     public function setLastName($lastName)
     {
         $this->lastName = $lastName;
+    }
+    /**
+     * @return string
+     */
+    public function getCardNumber()
+    {
+        return $this->cardNumber;
     }
 
 }
